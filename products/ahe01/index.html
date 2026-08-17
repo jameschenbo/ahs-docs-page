@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html class="staticrypt-html">
+    <head>
+        <meta charset="utf-8" />
+        <title>产品文档中心</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- do not cache this page -->
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <style>
+            .staticrypt-hr {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border: 0;
+                border-top: 1px solid #eee;
+            }
+
+            .staticrypt-page {
+                width: 360px;
+                padding: 8% 0 0;
+                margin: auto;
+                box-sizing: border-box;
+            }
+
+            .staticrypt-form {
+                position: relative;
+                z-index: 1;
+                background: #ffffff;
+                max-width: 360px;
+                margin: 0 auto 100px;
+                padding: 45px;
+                text-align: center;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            }
+
+            .staticrypt-form input[type="password"],
+            input[type="text"] {
+                background: inherit;
+                border: 0;
+                box-sizing: border-box; /* This ensures padding is included in the total width */
+                font-size: 14px;
+                outline: 0;
+                padding: 15px 30px 15px 15px; /* Adjust the padding to ensure there is space for the icon */
+                width: 100%;
+            }
+
+            .staticrypt-password-container {
+                position: relative;
+                outline: 0;
+                background: #f2f2f2;
+                width: 100%;
+                border: 0;
+                margin: 0 0 15px;
+                box-sizing: border-box;
+            }
+
+            .staticrypt-toggle-password-visibility {
+                cursor: pointer;
+                height: 20px;
+                opacity: 60%;
+                padding: 13px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button {
+                text-transform: uppercase;
+                outline: 0;
+                background: #4CAF50;
+                width: 100%;
+                border: 0;
+                padding: 15px;
+                color: #ffffff;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button:hover,
+            .staticrypt-form .staticrypt-decrypt-button:active,
+            .staticrypt-form .staticrypt-decrypt-button:focus {
+                background: #4CAF50;
+                filter: brightness(92%);
+            }
+
+            .staticrypt-html {
+                height: 100%;
+            }
+
+            .staticrypt-body {
+                height: 100%;
+                margin: 0;
+            }
+
+            .staticrypt-content {
+                height: 100%;
+                margin-bottom: 1em;
+                background: #76B852;
+                font-family: "Arial", sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .staticrypt-instructions {
+                margin-top: -1em;
+                margin-bottom: 1em;
+            }
+
+            .staticrypt-title {
+                font-size: 1.5em;
+            }
+
+            label.staticrypt-remember {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1em;
+            }
+
+            .staticrypt-remember input[type="checkbox"] {
+                transform: scale(1.5);
+                margin-right: 1em;
+            }
+
+            .hidden {
+                display: none !important;
+            }
+
+            .staticrypt-spinner-container {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .staticrypt-spinner {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+                vertical-align: text-bottom;
+                border: 0.25em solid gray;
+                border-right-color: transparent;
+                border-radius: 50%;
+                -webkit-animation: spinner-border 0.75s linear infinite;
+                animation: spinner-border 0.75s linear infinite;
+                animation-duration: 0.75s;
+                animation-timing-function: linear;
+                animation-delay: 0s;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+                animation-fill-mode: none;
+                animation-play-state: running;
+                animation-name: spinner-border;
+            }
+
+            @keyframes spinner-border {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @media screen and (-webkit-min-device-pixel-ratio: 0) {
+                .staticrypt-form input[type="password"],
+                input[type="text"] {
+                    font-size: 16px;
+                }
+            }
+        .staticrypt-qr-section{margin-top:24px;padding-top:18px;border-top:1px dashed #ddd;text-align:center;}.staticrypt-qr-section img{width:180px;height:180px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}.staticrypt-qr-section p{margin-top:10px;color:#555;font-size:14px;line-height:1.5;}
+            </style>
+    </head>
+
+    <body class="staticrypt-body">
+        <div id="staticrypt_loading" class="staticrypt-spinner-container">
+            <div class="staticrypt-spinner"></div>
+        </div>
+
+        <div id="staticrypt_content" class="staticrypt-content hidden">
+            <div class="staticrypt-page">
+                <div class="staticrypt-form">
+                    <div class="staticrypt-instructions">
+                        <p class="staticrypt-title">产品文档中心</p>
+                        <p>请输入访问密码</p>
+                    </div>
+
+                    <hr class="staticrypt-hr" />
+
+                    <form id="staticrypt-form" action="#" method="post">
+                        <div class="staticrypt-password-container">
+                            <input
+                                id="staticrypt-password"
+                                type="password"
+                                name="password"
+                                placeholder="请输入密码"
+                                value="AhsDocs#2026K8pN"
+                                autofocus
+                            />
+
+                            <img
+                                class="staticrypt-toggle-password-visibility"
+                                alt="显示密码"
+                                title="显示密码"
+                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg=="
+                            />
+                        </div>
+
+                        <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
+                            <input id="staticrypt-remember" type="checkbox" name="remember" />
+                            记住我
+                        </label>
+
+                        <input type="submit" class="staticrypt-decrypt-button" value="进入文档" />
+
+                <div class="staticrypt-qr-section"><img src="data:image/jpeg;base64,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" alt="公众号二维码" /><p>微信扫一扫<br />关注我</p></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // these variables will be filled when generating the file - the template format is 'variable_name'
+            const staticryptInitiator = ((function(){
+  const exports = {};
+  const cryptoEngine = ((function(){
+  const exports = {};
+  const { subtle } = crypto;
+
+const IV_BITS = 16 * 8;
+const HEX_BITS = 4;
+const ENCRYPTION_ALGO = "AES-CBC";
+
+/**
+ * Translates between utf8 encoded hexadecimal strings
+ * and Uint8Array bytes.
+ */
+const HexEncoder = {
+    /**
+     * hex string -> bytes
+     * @param {string} hexString
+     * @returns {Uint8Array}
+     */
+    parse: function (hexString) {
+        if (hexString.length % 2 !== 0) throw "Invalid hexString";
+        const arrayBuffer = new Uint8Array(hexString.length / 2);
+
+        for (let i = 0; i < hexString.length; i += 2) {
+            const byteValue = parseInt(hexString.substring(i, i + 2), 16);
+            if (isNaN(byteValue)) {
+                throw "Invalid hexString";
+            }
+            arrayBuffer[i / 2] = byteValue;
+        }
+        return arrayBuffer;
+    },
+
+    /**
+     * bytes -> hex string
+     * @param {Uint8Array} bytes
+     * @returns {string}
+     */
+    stringify: function (bytes) {
+        const hexBytes = [];
+
+        for (let i = 0; i < bytes.length; ++i) {
+            let byteString = bytes[i].toString(16);
+            if (byteString.length < 2) {
+                byteString = "0" + byteString;
+            }
+            hexBytes.push(byteString);
+        }
+        return hexBytes.join("");
+    },
+};
+
+/**
+ * Translates between utf8 strings and Uint8Array bytes.
+ */
+const UTF8Encoder = {
+    parse: function (str) {
+        return new TextEncoder().encode(str);
+    },
+
+    stringify: function (bytes) {
+        return new TextDecoder().decode(bytes);
+    },
+};
+
+/**
+ * Salt and encrypt a msg with a password.
+ */
+async function encrypt(msg, hashedPassword) {
+    // Must be 16 bytes, unpredictable, and preferably cryptographically random. However, it need not be secret.
+    // https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt#parameters
+    const iv = crypto.getRandomValues(new Uint8Array(IV_BITS / 8));
+
+    const key = await subtle.importKey("raw", HexEncoder.parse(hashedPassword), ENCRYPTION_ALGO, false, ["encrypt"]);
+
+    const encrypted = await subtle.encrypt(
+        {
+            name: ENCRYPTION_ALGO,
+            iv: iv,
+        },
+        key,
+        UTF8Encoder.parse(msg)
+    );
+
+    // iv will be 32 hex characters, we prepend it to the ciphertext for use in decryption
+    return HexEncoder.stringify(iv) + HexEncoder.stringify(new Uint8Array(encrypted));
+}
+exports.encrypt = encrypt;
+
+/**
+ * Decrypt a salted msg using a password.
+ *
+ * @param {string} encryptedMsg
+ * @param {string} hashedPassword
+ * @returns {Promise<string>}
+ */
+async function decrypt(encryptedMsg, hashedPassword) {
+    const ivLength = IV_BITS / HEX_BITS;
+    const iv = HexEncoder.parse(encryptedMsg.substring(0, ivLength));
+    const encrypted = encryptedMsg.substring(ivLength);
+
+    const key = await subtle.importKey("raw", HexEncoder.parse(hashedPassword), ENCRYPTION_ALGO, false, ["decrypt"]);
+
+    const outBuffer = await subtle.decrypt(
+        {
+            name: ENCRYPTION_ALGO,
+            iv: iv,
+        },
+        key,
+        HexEncoder.parse(encrypted)
+    );
+
+    return UTF8Encoder.stringify(new Uint8Array(outBuffer));
+}
+exports.decrypt = decrypt;
+
+/**
+ * Salt and hash the password so it can be stored in localStorage without opening a password reuse vulnerability.
+ *
+ * @param {string} password
+ * @param {string} salt
+ * @returns {Promise<string>}
+ */
+async function hashPassword(password, salt) {
+    // we hash the password in multiple steps, each adding more iterations. This is because we used to allow less
+    // iterations, so for backward compatibility reasons, we need to support going from that to more iterations.
+    let hashedPassword = await hashLegacyRound(password, salt);
+
+    hashedPassword = await hashSecondRound(hashedPassword, salt);
+
+    return hashThirdRound(hashedPassword, salt);
+}
+exports.hashPassword = hashPassword;
+
+/**
+ * This hashes the password with 1k iterations. This is a low number, we need this function to support backwards
+ * compatibility.
+ *
+ * @param {string} password
+ * @param {string} salt
+ * @returns {Promise<string>}
+ */
+function hashLegacyRound(password, salt) {
+    return pbkdf2(password, salt, 1000, "SHA-1");
+}
+exports.hashLegacyRound = hashLegacyRound;
+
+/**
+ * Add a second round of iterations. This is because we used to use 1k, so for backwards compatibility with
+ * remember-me/autodecrypt links, we need to support going from that to more iterations.
+ *
+ * @param hashedPassword
+ * @param salt
+ * @returns {Promise<string>}
+ */
+function hashSecondRound(hashedPassword, salt) {
+    return pbkdf2(hashedPassword, salt, 14000, "SHA-256");
+}
+exports.hashSecondRound = hashSecondRound;
+
+/**
+ * Add a third round of iterations to bring total number to 600k. This is because we used to use 1k, then 15k, so for
+ * backwards compatibility with remember-me/autodecrypt links, we need to support going from that to more iterations.
+ *
+ * @param hashedPassword
+ * @param salt
+ * @returns {Promise<string>}
+ */
+function hashThirdRound(hashedPassword, salt) {
+    return pbkdf2(hashedPassword, salt, 585000, "SHA-256");
+}
+exports.hashThirdRound = hashThirdRound;
+
+/**
+ * Salt and hash the password so it can be stored in localStorage without opening a password reuse vulnerability.
+ *
+ * @param {string} password
+ * @param {string} salt
+ * @param {int} iterations
+ * @param {string} hashAlgorithm
+ * @returns {Promise<string>}
+ */
+async function pbkdf2(password, salt, iterations, hashAlgorithm) {
+    const key = await subtle.importKey("raw", UTF8Encoder.parse(password), "PBKDF2", false, ["deriveBits"]);
+
+    const keyBytes = await subtle.deriveBits(
+        {
+            name: "PBKDF2",
+            hash: hashAlgorithm,
+            iterations,
+            salt: UTF8Encoder.parse(salt),
+        },
+        key,
+        256
+    );
+
+    return HexEncoder.stringify(new Uint8Array(keyBytes));
+}
+
+function generateRandomSalt() {
+    const bytes = crypto.getRandomValues(new Uint8Array(128 / 8));
+
+    return HexEncoder.stringify(new Uint8Array(bytes));
+}
+exports.generateRandomSalt = generateRandomSalt;
+
+async function signMessage(hashedPassword, message) {
+    const key = await subtle.importKey(
+        "raw",
+        HexEncoder.parse(hashedPassword),
+        {
+            name: "HMAC",
+            hash: "SHA-256",
+        },
+        false,
+        ["sign"]
+    );
+    const signature = await subtle.sign("HMAC", key, UTF8Encoder.parse(message));
+
+    return HexEncoder.stringify(new Uint8Array(signature));
+}
+exports.signMessage = signMessage;
+
+function getRandomAlphanum() {
+    const possibleCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    let byteArray;
+    let parsedInt;
+
+    // Keep generating new random bytes until we get a value that falls
+    // within a range that can be evenly divided by possibleCharacters.length
+    do {
+        byteArray = crypto.getRandomValues(new Uint8Array(1));
+        // extract the lowest byte to get an int from 0 to 255 (probably unnecessary, since we're only generating 1 byte)
+        parsedInt = byteArray[0] & 0xff;
+    } while (parsedInt >= 256 - (256 % possibleCharacters.length));
+
+    // Take the modulo of the parsed integer to get a random number between 0 and totalLength - 1
+    const randomIndex = parsedInt % possibleCharacters.length;
+
+    return possibleCharacters[randomIndex];
+}
+
+/**
+ * Generate a random string of a given length.
+ *
+ * @param {int} length
+ * @returns {string}
+ */
+function generateRandomString(length) {
+    let randomString = "";
+
+    for (let i = 0; i < length; i++) {
+        randomString += getRandomAlphanum();
+    }
+
+    return randomString;
+}
+exports.generateRandomString = generateRandomString;
+
+  return exports;
+})());
+const codec = ((function(){
+  const exports = {};
+  /**
+ * Initialize the codec with the provided cryptoEngine - this return functions to encode and decode messages.
+ *
+ * @param cryptoEngine - the engine to use for encryption / decryption
+ */
+function init(cryptoEngine) {
+    const exports = {};
+
+    /**
+     * Top-level function for encoding a message.
+     * Includes password hashing, encryption, and signing.
+     *
+     * @param {string} msg
+     * @param {string} password
+     * @param {string} salt
+     *
+     * @returns {string} The encoded text
+     */
+    async function encode(msg, password, salt) {
+        const hashedPassword = await cryptoEngine.hashPassword(password, salt);
+
+        const encrypted = await cryptoEngine.encrypt(msg, hashedPassword);
+
+        // we use the hashed password in the HMAC because this is effectively what will be used a password (so we can store
+        // it in localStorage safely, we don't use the clear text password)
+        const hmac = await cryptoEngine.signMessage(hashedPassword, encrypted);
+
+        return hmac + encrypted;
+    }
+    exports.encode = encode;
+
+    /**
+     * Encode using a password that has already been hashed. This is useful to encode multiple messages in a row, that way
+     * we don't need to hash the password multiple times.
+     *
+     * @param {string} msg
+     * @param {string} hashedPassword
+     *
+     * @returns {string} The encoded text
+     */
+    async function encodeWithHashedPassword(msg, hashedPassword) {
+        const encrypted = await cryptoEngine.encrypt(msg, hashedPassword);
+
+        // we use the hashed password in the HMAC because this is effectively what will be used a password (so we can store
+        // it in localStorage safely, we don't use the clear text password)
+        const hmac = await cryptoEngine.signMessage(hashedPassword, encrypted);
+
+        return hmac + encrypted;
+    }
+    exports.encodeWithHashedPassword = encodeWithHashedPassword;
+
+    /**
+     * Top-level function for decoding a message.
+     * Includes signature check and decryption.
+     *
+     * @param {string} signedMsg
+     * @param {string} hashedPassword
+     * @param {string} salt
+     * @param {int} backwardCompatibleAttempt
+     * @param {string} originalPassword
+     *
+     * @returns {Object} {success: true, decoded: string} | {success: false, message: string}
+     */
+    async function decode(signedMsg, hashedPassword, salt, backwardCompatibleAttempt = 0, originalPassword = "") {
+        const encryptedHMAC = signedMsg.substring(0, 64);
+        const encryptedMsg = signedMsg.substring(64);
+        const decryptedHMAC = await cryptoEngine.signMessage(hashedPassword, encryptedMsg);
+
+        if (decryptedHMAC !== encryptedHMAC) {
+            // we have been raising the number of iterations in the hashing algorithm multiple times, so to support the old
+            // remember-me/autodecrypt links we need to try bringing the old hashes up to speed.
+            originalPassword = originalPassword || hashedPassword;
+            if (backwardCompatibleAttempt === 0) {
+                const updatedHashedPassword = await cryptoEngine.hashThirdRound(originalPassword, salt);
+
+                return decode(signedMsg, updatedHashedPassword, salt, backwardCompatibleAttempt + 1, originalPassword);
+            }
+            if (backwardCompatibleAttempt === 1) {
+                let updatedHashedPassword = await cryptoEngine.hashSecondRound(originalPassword, salt);
+                updatedHashedPassword = await cryptoEngine.hashThirdRound(updatedHashedPassword, salt);
+
+                return decode(signedMsg, updatedHashedPassword, salt, backwardCompatibleAttempt + 1, originalPassword);
+            }
+
+            return { success: false, message: "Signature mismatch" };
+        }
+
+        return {
+            success: true,
+            decoded: await cryptoEngine.decrypt(encryptedMsg, hashedPassword),
+        };
+    }
+    exports.decode = decode;
+
+    return exports;
+}
+exports.init = init;
+
+  return exports;
+})());
+const decode = codec.init(cryptoEngine).decode;
+
+/**
+ * Initialize the staticrypt module, that exposes functions callbable by the password_template.
+ *
+ * @param {{
+ *  staticryptEncryptedMsgUniqueVariableName: string,
+ *  isRememberEnabled: boolean,
+ *  rememberDurationInDays: number,
+ *  staticryptSaltUniqueVariableName: string,
+ * }} staticryptConfig - object of data that is stored on the password_template at encryption time.
+ *
+ * @param {{
+ *  rememberExpirationKey: string,
+ *  rememberPassphraseKey: string,
+ *  replaceHtmlCallback: function,
+ *  clearLocalStorageCallback: function,
+ * }} templateConfig - object of data that can be configured by a custom password_template.
+ */
+function init(staticryptConfig, templateConfig) {
+    const exports = {};
+
+    /**
+     * Decrypt our encrypted page, replace the whole HTML.
+     *
+     * @param {string} hashedPassword
+     * @returns {Promise<boolean>}
+     */
+    async function decryptAndReplaceHtml(hashedPassword) {
+        const { staticryptEncryptedMsgUniqueVariableName, staticryptSaltUniqueVariableName } = staticryptConfig;
+        const { replaceHtmlCallback } = templateConfig;
+
+        const result = await decode(
+            staticryptEncryptedMsgUniqueVariableName,
+            hashedPassword,
+            staticryptSaltUniqueVariableName
+        );
+        if (!result.success) {
+            return false;
+        }
+        const plainHTML = result.decoded;
+
+        // if the user configured a callback call it, otherwise just replace the whole HTML
+        if (typeof replaceHtmlCallback === "function") {
+            replaceHtmlCallback(plainHTML);
+        } else {
+            document.write(plainHTML);
+            document.close();
+        }
+
+        return true;
+    }
+
+    /**
+     * Attempt to decrypt the page and replace the whole HTML.
+     *
+     * @param {string} password
+     * @param {boolean} isRememberChecked
+     *
+     * @returns {Promise<{isSuccessful: boolean, hashedPassword?: string}>} - we return an object, so that if we want to
+     *   expose more information in the future we can do it without breaking the password_template
+     */
+    async function handleDecryptionOfPage(password, isRememberChecked) {
+        const { staticryptSaltUniqueVariableName } = staticryptConfig;
+
+        // decrypt and replace the whole page
+        const hashedPassword = await cryptoEngine.hashPassword(password, staticryptSaltUniqueVariableName);
+        return handleDecryptionOfPageFromHash(hashedPassword, isRememberChecked);
+    }
+    exports.handleDecryptionOfPage = handleDecryptionOfPage;
+
+    async function handleDecryptionOfPageFromHash(hashedPassword, isRememberChecked) {
+        const { isRememberEnabled, rememberDurationInDays } = staticryptConfig;
+        const { rememberExpirationKey, rememberPassphraseKey } = templateConfig;
+
+        const isDecryptionSuccessful = await decryptAndReplaceHtml(hashedPassword);
+
+        if (!isDecryptionSuccessful) {
+            return {
+                isSuccessful: false,
+                hashedPassword,
+            };
+        }
+
+        // remember the hashedPassword and set its expiration if necessary
+        if (isRememberEnabled && isRememberChecked) {
+            window.localStorage.setItem(rememberPassphraseKey, hashedPassword);
+
+            // set the expiration if the duration isn't 0 (meaning no expiration)
+            if (rememberDurationInDays > 0) {
+                window.localStorage.setItem(
+                    rememberExpirationKey,
+                    (new Date().getTime() + rememberDurationInDays * 24 * 60 * 60 * 1000).toString()
+                );
+            }
+        }
+
+        return {
+            isSuccessful: true,
+            hashedPassword,
+        };
+    }
+    exports.handleDecryptionOfPageFromHash = handleDecryptionOfPageFromHash;
+
+    /**
+     * Clear localstorage from staticrypt related values
+     */
+    function clearLocalStorage() {
+        const { clearLocalStorageCallback, rememberExpirationKey, rememberPassphraseKey } = templateConfig;
+
+        if (typeof clearLocalStorageCallback === "function") {
+            clearLocalStorageCallback();
+        } else {
+            localStorage.removeItem(rememberPassphraseKey);
+            localStorage.removeItem(rememberExpirationKey);
+        }
+    }
+
+    async function handleDecryptOnLoad() {
+        let isSuccessful = await decryptOnLoadFromUrl();
+
+        if (!isSuccessful) {
+            isSuccessful = await decryptOnLoadFromRememberMe();
+        }
+
+        return { isSuccessful };
+    }
+    exports.handleDecryptOnLoad = handleDecryptOnLoad;
+
+    /**
+     * Clear storage if we are logging out
+     *
+     * @returns {boolean} - whether we logged out
+     */
+    function logoutIfNeeded() {
+        const logoutKey = "staticrypt_logout";
+
+        // handle logout through query param
+        const queryParams = new URLSearchParams(window.location.search);
+        if (queryParams.has(logoutKey)) {
+            clearLocalStorage();
+            return true;
+        }
+
+        // handle logout through URL fragment
+        const hash = window.location.hash.substring(1);
+        if (hash.includes(logoutKey)) {
+            clearLocalStorage();
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * To be called on load: check if we want to try to decrypt and replace the HTML with the decrypted content, and
+     * try to do it if needed.
+     *
+     * @returns {Promise<boolean>} true if we derypted and replaced the whole page, false otherwise
+     */
+    async function decryptOnLoadFromRememberMe() {
+        const { rememberDurationInDays } = staticryptConfig;
+        const { rememberExpirationKey, rememberPassphraseKey } = templateConfig;
+
+        // if we are login out, terminate
+        if (logoutIfNeeded()) {
+            return false;
+        }
+
+        // if there is expiration configured, check if we're not beyond the expiration
+        if (rememberDurationInDays && rememberDurationInDays > 0) {
+            const expiration = localStorage.getItem(rememberExpirationKey),
+                isExpired = expiration && new Date().getTime() > parseInt(expiration);
+
+            if (isExpired) {
+                clearLocalStorage();
+                return false;
+            }
+        }
+
+        const hashedPassword = localStorage.getItem(rememberPassphraseKey);
+
+        if (hashedPassword) {
+            // try to decrypt
+            const isDecryptionSuccessful = await decryptAndReplaceHtml(hashedPassword);
+
+            // if the decryption is unsuccessful the password might be wrong - silently clear the saved data and let
+            // the user fill the password form again
+            if (!isDecryptionSuccessful) {
+                clearLocalStorage();
+                return false;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    async function decryptOnLoadFromUrl() {
+        const passwordKey = "staticrypt_pwd";
+        const rememberMeKey = "remember_me";
+
+        // try to get the password from the query param (for backward compatibility - we now want to avoid this method,
+        // since it sends the hashed password to the server which isn't needed)
+        const queryParams = new URLSearchParams(window.location.search);
+        const hashedPasswordQuery = queryParams.get(passwordKey);
+        const rememberMeQuery = queryParams.get(rememberMeKey);
+
+        const urlFragment = window.location.hash.substring(1);
+        // get the password from the url fragment
+        const hashedPasswordRegexMatch = urlFragment.match(new RegExp(passwordKey + "=([^&]*)"));
+        const hashedPasswordFragment = hashedPasswordRegexMatch ? hashedPasswordRegexMatch[1] : null;
+        const rememberMeFragment = urlFragment.includes(rememberMeKey);
+
+        const hashedPassword = hashedPasswordFragment || hashedPasswordQuery;
+        const rememberMe = rememberMeFragment || rememberMeQuery;
+
+        if (hashedPassword) {
+            return handleDecryptionOfPageFromHash(hashedPassword, rememberMe);
+        }
+
+        return false;
+    }
+
+    return exports;
+}
+exports.init = init;
+
+  return exports;
+})());
+            const templateError = "密码错误，请重试",
+                templateToggleAltShow = "显示密码",
+                templateToggleAltHide = "隐藏密码",
+                isRememberEnabled = true,
+                staticryptConfig = {"staticryptEncryptedMsgUniqueVariableName":"7607e167c3ef73b98d622ca5073d491f90f026afc91150a1c93a088ae3c4c01d56adfef5119eab501d4db1e161558289be953f194a9173044d10500e33389df38c946722b7a13c6ba6a0d6fb33379ca64b94c268328cd2023bf3b835005630ced1bf6874c27096b18275efa1be7c3cefb47c6368338202c44896fe4b6cd1bca090a6eae6f3ba5eca7349684f141751016cbc2b56bf032f231ae5d7f671414e546328aa3fbcf74b35f971f65b1ce47b7f30166f82091d5bc00931472aea141df4861071aeb55f85c71117ea36e7f0b76879022f217feed06cab94beb8a7311ea8c9315dd45baed4722c2086a7bc138262a7599f51a079228bc74f5da28f3a74460d48b8838162cc92cbe9676dd11831f0e33f9bc2f2b7c01187bb69bdf8a6a1652ca4f19e72233df1656087efcb51757100e690b7c04de4494ab4ff4d65098f3a4e2197e1d926c804648c10c172c068d085ee72fc86309b597a1584461ae951bb66ee72cf14e41cc9ed2d30680a13b1efec3778cd6119cef2595411e5d705c0c71177925647e3296f913b5841af77d4c6856255063d119f91f7c30e0fea33499c03341847ff72777a310afb10712086095334540b3e7b76299168d6200e5204ddc4110e8d57cd40f522e6417b8b2ae95c0c7dd709609e5b9e8e4cdfc2caf5e5070d82213fc97440a255e9c2d2443153684a0941fb5e250d28b16e54902f30f2e8f1f7f1dde8e62b9efcdbf40527fc683e6d71dd3e105e9f6385833a3ecca97cd28f16833bb069c1340b062d129f69402e0e7ab0fcf6e61ddc3453d625c9d93e181e587875608760b2b055e38ddca68427340565a2b0f5406135a041dcd93915d41691fcd15765a6f1f00a74ebd1b80a565df9cfbd51a2d402dbb610d3aaa1788e1a575bf52e1c19e3a9f1a2b8c11f10677b1eeee096bedb9564a029e63109cf77c7b419bf52a4d5b20a885d77162ed58ca52794d2f5771a588c9880f19ac46069161df3db805d4f545ecd696fd7449ab15554ebdd08ad8de7c5eb2c987a4cbd7caef3d6a668687f6980dca85cb51498043bd62e1ca4de126b14aba5b48f0c9f6f7916e9933a243d808ac1d17237ed9cf015ed58ae4ea947d04efc6fb4adeb9fbb7824449459dbe08dd5359c6bfa5137ca993a7fbd8770eb90716724b1a6ee003c5401adc1aeced0803daa92f883c2ccd4d6983f0861784cc7515839006194eec490739dd913e0cd3b1f1eb9dd1633d88e8e08cb4327edd04ff0479a1bcd5c6e0ae51f3293182b5479a844c7591564479ab8cd599ae2e9f99c507e3ac996aeaf19dc355f18fef3235848680761f9a7378da8713a988b575ca47f9843a6b4c650e85af3df68ade17955b895cf568501d408b35d0b661c19cd68e9dc364a5301f18c51768c8ba57698aa4a5180bc1f77bdf3e569973709e13b2d260376d6222b31f3cbd679c98b86cf7eb6a31e0c905e9d888d2ff8e4fb5cbe12a5deee9ab3acf96d767fff7c7f41a68ad66e8a8f7334b6d92818a5b011926054ca1eae5fa6d6a91e043e0a33a211deae960a359f101549c7aae75b6ca34df67ba7c13ad65bacd46a25b73f8ca50119a8796f41d7ecd5968672075c5f344268cc5184f94f0f4891ccad886ae1b072d6cc6c11309e54742a0bb06ba1a4dc7948a5bed7b6a5ad9604ea146b88a6eec13c86598a2d9fea14097642d74532aa03c160a9251022939cac936662107727f030d3fce0bfa7765e89ee18385b04f8daf4e62327285dde0139034b88c43cf77133cbb96c3d22b9890cb25666f310d313d39143580472ba9f8492609c57ec26baae18c84cc607cf93ea973f2d60435d0a4dd71eaac18d20d6adc51a200b804bfff9ecd84e0980a826391a8661b639b840128082139a50e5862d68e62c8e9802f8b0d9c9a2e38b37462b2b2947f04d0d588d9c847e2d03378c6b07dd7b3dcf11d8d00f2719daebd9b1ed859e8ae56be94f53c5b6c43f57951a65466cc7701fcd7e9b6f09804089569dece4a9f36d4e6e15d1a677ce28cfca8ace5f9d641e616a7bca838a5b1700658f5fe5986d5763cd2e59fecfd6e3555f244fe8f7d7b7707884dcea6c715cd6fdd52342c8fb07758df31ffb3248c581d2c027fad58bff4f16756eb2904c70f3cf694f7f2fc3174c5b676c3cca0a7025de1b8c4b3fe0fe5d0d0f3903b1a9438a8d64a1091db89f8176a9eafdc88bcda218f01245215ef9bb0d9602439b2ecc8153b6bca96233cccc049082fcaf304282ba0267c2568aaee15ea4bdca0c86c296e62b3846cd4f54966eda09146df24557ac87e023af09cb6379986f81ef2febfa7af6888857ca83d43d1fa64484977665cc9ecccf50165ac6db6d68223b43a1752588b8ad4b912f68e09fce32bf650a9935b8cba861ce917091c6b27c7cdb1f686bf54e869d31547fa2dccd177ce88e340d60c4dd31c9791fd139ddc9069b4c47bd03f8dc418504dd63157f38aa19337fa90e3046e5ac44ee8c83ab6baadf201217be42ca2d69caf17ad9da168c68b5fdf1ae80efd86b98452ea69c8bc4aa792cadc158f1d237bc8ab59210570cade0b39a50be1d6fc7d4ca30455cd08ca44437ed7c00057a1724624e543e1a0d1a3ac00d1b84f750a844f76e4a70440cc48b103bcfc080d729a96964abfbf8e4aa047a2b641092374002e65b5e9a2889e2b5d1dccf5a29aea0c5554598a61f632f49e72c0e94ad1643d950c3f29e91c5e023b327ed6e2299332b88858634994c13b80dfc9f170e832fbb2cb6bd0932fa931572ae94869ff01100605582928085378e552d5e2f9b7f3a2775feed55f8d575003606a309ef7f474dde687c2802c5bd82e96dee1a85526a208041ed2604eb3534adafa1b4dc0271e4062996d3d56c3ee56ebd2afbc3bb1c422527bbe02b71f904df086ea1468992829fdbbca0f33446b3110f432bcfb91744430019e8de9d33ca9cb4a980fb318526b4608b24a7f71411b4b4c5d10b214cfd980549f1cda1941fffa4e0ea53f0745462a266a1dee871b62e10626fb763c4ac5f7747c33152c71612d18192f9b05e04c030cda2e5574280e67cc85df214794e343b51967d3883e878d64a1f5a9369c679af42448383e2a5a595035efebf242ab6f1443dbd99f9f8233ff4fb7d786ddc5758ae7ffe1d1f04e675158346559a6215315011bbb1b28cf9eabfa2e7708f6abe75ae85100a2de2f750f0b46d786e6de0850cff2131d1ff1689e3234a7316a38f1ee40322662d87bccc6a44b3061ccc0ca8c02fbe761f1dd24fb94f520adb6818db23e6ed6c5b7cda91a576443f93c581cf21b105cee1b1b074ccd2fadd5b94557b3c50f50f605f54c5ae0771ba69c9668e70cf960e5e5429765be7d7f6df74cb392dbd956111fba49077d6aa2c6c0c3d4e27f8e4c0165a53d5a4b86f178afcff350163f3ab62f53fb99c20038e710b3a02890aeb1ecf9c6a034fbc337c4d4a874392650b09ffc7a8d8b74c6fb7155cb4757d2c0548e9eea6906d347bc659f7d6eddcdacd5fcb83085446076339bba355e1c66b2c667dab1936249dac81f828bb106db1b4679107c6e6fe2688646ecfe0e79eb2f25de042855c9269147c01626f652d081bf53f8e139b95f547d8e59fe66f622e938633d3b4b482ae32870aedae27e57445d931e3c81af235d33bb3b339713bb02f07e4b7d0fe8e4184b8e64d83ae8d0aecc0487934d062f70240d810fc48d38ff17e421eadbf58892f23a674edc02a77c7386fa8fbe0e875b2dabae1c86d5e3f37f81baaa8423905bc0f9b18d0c66150b326dc6d9aab5caa628057463d6801b7ab5e9460f1623d1a339a460cdcc61ee71b313c95e55904cad36da68a7fac1349a5860e7fa3c9e0ab3a7ac5739fca1e1f737bac1e91362a7fd171ad6db738f51e59f14daf89b8703f47ddafd0ede941aa4cf36213013d39f1627b5143f49b1fab569349a7696e3256e0d1c1df0aaa576f94920b8a99a059d051119f019233596b040a114c060785af4409b3e4661bde07825714bd3f3c67c88718f5cfd49eb2bd2c5d89020020e23aea61f6289d7b5f381e669202cdb2cbec42b21155adee0423572f416446014370b0a0d3b60a255c06f4b4232f3019deeb9feecb5879190f745fe63d1f4ff52b23ec3fb194f98323f4b9d957f57c90265128d690adb9fc33de6d59a37d9a1bb28e533e81fb02fd123f7422b4d1f0f85a522320c55b80a2f11782d88ce7e29526c9360b45147a3c899cf2e989a2ed1c64773d73deebf2b135d92f3caf41012258d655493caee89373c9d7dd9b0c77c8011ac4e5b2c1bb92204924fa5acd8fe0cf9f08981e5631e0a7d33b55db1c9d4e37a09853b23b23adfad8bd09caf753ae5be177d56844b2c919af1cb9f237532372d689386fd906cbc9bcc5ab8909e4668900e6122075ae7fbd8f373c003b8d4e8cfa7f9fe5981a525cfbd002a384d563cc9438417d6253031d7d48b8e5020325f61494a2febb0eac248144cf982a864063a750faf69a5b63274d9df676037588e23de0c4cac5152bd4871af2612efd0ecec82092550c0b3efdd076087e2d02b2175ab7a3845e3de8b5c526be62de4168ea010e0acf28534cad94e37562384163d1788936bf19cb67b5acf26d99dedc993c3ccabad55998cdd4622ebbd3746c7abab9b215ada2c7856a33784d8b7735f5678e217dc030102f21b941b9b7dea7f830c0fb6b01bb63730032e59de6d06dc511d42db30739a5d04531792b06e064a28ab9332cff66e6c6696e781d45d2e275edc30f85fd9dc631e63f28c40b25671b33e8aa117e8f5eebdcd5be66e52ed6412ca97bd0d96dbdc406177189ebb1241a6230e58619adfd6d7052263580dbbe168dc0c1999011885d1b8f6accaa5fdd59bafbfc28ef265b463b66b5f2d712236f0ab276101fd1cedebf2c60333d9d8c98472d83e91a2d269e655777994a6d1be02fa03f5cb3775788c5a22bb447ae9e3449559691eaa322bd35d283b4798535adf76df6b597b7d94eca8162167e2e5d4e53f0de363613edcc015f16ec4a9ef4ab404dc344e88deb227c6729acdb306f6d75ddc05e31780d69b2ae9df2e2cd24e8ec5c28326ed56ed5889907db5c6075bdf73790455f9f957c39f964096f101de8f0b507bfe93219a4ef93fc36c1b5c45e765c5355c2cc26d4a9fddb39fa3ece0897b6d52a086efab88b0bde7969b50248dbc101540a02536990149cbe22e78f1a6e7ed02c22089e10e25b46195beecd572232ca6ac548dff434951bce6a686d4ec1648f5d61bd07117e143efc675b06459c90a9fc00309b9b6a1187ea36c3158ecb53b9399891b2e1e60a762e312bbb2cc6cba14b0f4a4377fbecc440260c1260e5fb2529d888b672ecf5385eed137fbe01da39c71a7769cf962f5f7db464f3219316ffa6d7b88f5ff672e91606fedde90606b194dea3f033f342477b9fd63df3784f423d4a1e40c12126ab7b0d2ed5089c6c577d0f0338c2f0e032e39ee25b23dfea741bfb1d92e8ddf70cfb8bb9c1c0e46f8782238c891fd97e39fdec79413d62d4f1d8711ce5b216e37c9136263d28cea1bc983ac4e002f59a67282c4e3cda5596beac79076788ff8ef3dfb969a0774324c18f7853606ea3a0ee9bea0d3920c20f4d6b6b4fefc7be099b0ef5d30501097f10fd373fa8bdf80d4379062197f3fafcf953fdd86d967453d99afbe6f03722cfa6e993cdc007f7cd772cbde0678977ccdea370ee3389ba2d165eaf63408833618b889fcbf6a9ce5ae12f0d5120f44f74daac8226393db6007b1e525600a16bef2f3f3cb6192c7e27410ec48e439e2143a7bc53086a890c80105b918937b0579ac97090baf735492b28ff39430bf66b2f801ea0de4ba79a0404a8443b973dfbd6cbcb87b49060b414f2c2af6966cd2b6b42540c2dffcf188a3cb16d8f95251b7a7bf9aa9e6c62acc3431be0f5bda7f88289762fb7fc40cfc93ec1f89090e0aab9434358a9162d4001473488e2b205aafb1642084b9e1183e78d5c0e52e49e6b677de7168de089a9245daa5378db007ca439a50a6a3dd705080d7203385cf1baeada407331d4316400943e1fba80c741262a9ce8251ea18f0f2a3b36b15caffbf189f35f7ca2072ee1a8897e2766157f2f42b0843ccb8d50de65eede36764d5b6581c66838fb91c3875905e035e1334466bc26116ba1af67e633e7429082f1b9de5c121156db3431b2f59694396e4acb330a53669870b0b811fdae986a049f40ec68b6db398a4e640e5c6c2e990bef352ebb52a1bd388b9fcbfc01749edbe591276682e43cf397d8a63b7471f19c956e45f0fa978d4f2326c6fc8ac4b2ed834cf59908be186561ea9c86240a389e52a6e8c50b5f83e35fb9c66de637145254ec5ea25a652d2128cf1f3c4f4a390bcab0591de810e76531f36f8e37013e4555ba9feb9c5c48728f67702b36f998f015f4beedd015105f7ab2b082929c59c39f706562b05b448007b953bb52ed88f02a307cce46475337f9242fa25e1a18f91fe27cbe54cadcafe72011ccd46172afcd1f75ba22ce8c6dd1aad05620fa1c94fe34b5c43447f4ef2b13efe7d815e8c4a1d49b5f4d271702a077c734c387c767c483de6aa029aedc8945d9fb4655ea2e787f7ab9f7de40c8bb0a612146b75fd458743b03ac4292798306d2d3ffbec3986347dff93ecdd3ae3cfc4ecdcac90f7ac6b2ee843627f86218b758e5fc6fe093e20ebf265043012e09d94228f86ca36861bcf8f6927322af3d61d92fad48e93f01fb17a8ac0d1396cc71936c870e66f99c0f30f3597b81673433425ab9f810793c2953dc833173f3f4abc0ed8c1b96c1b06760abf879370c9b328a596512f154c2dfac0a3882684c26b20ff8febe7147b0426b7f9ea5531217175d0dda7feed14a35197ef04ad53ee80529fbcbcb17729c683c30d8103eb2414e8754bb93a1141185eeb7b5880cf7a68420aed03e20fd117169d85da021938d6b0781e350451770beb5198485e3449010aadd4d2aa0c4b145e76a5aa07edfd6b02b7be632f8b80f1b3c864b0e310d3551852c5b0f1ba2ba00e3fdba7831461bfba340b51c0167beccacd6973fe5195722c90c0af425d9d6b6f1f0aa5800430a54a25eeb00f179a5e9fbfbfa5c584254c88f10518c82d31787a707e81d98ceae13ab3741d249fd16a8b2d734b05eff0812681d065c630c6679094fb6d0bf25259909c42fc89cc619dde79e926572def214f62bad0903c002bfb1d25d9e6b5fd232c469e32a6a4a7d647c8db7c448199a6dbc24fa47a1ab2285b7141526b1a188b7c23fd3e430c91cbfe3067fc691223b61c2029f9a9e3763e3240c1d5372f95b5c52da373226a58eb8ed78a72cea6f4f641abd32c16d83859dbe38975c9b4de72779c42645570a9e40fcbcacd90f826364ac213f1a5a2ce40617bc38fd3b45d5a9a0e4fd5a4ab0b1bdb3072795a6d4860eb5f09f97617eb97c236a2950a35eecac229f93bef5218cea070adcfe216735da4952465af9bca4656545fc8ee1a4b07439053fcece83b3618831e8b05c38f2799739fa06dcf3563ce2bb636eb269ea7d9346229a7865e402bd0abe86292087c0f2169fe4d8c17505de635ce59f045eafd82d82f02e921c04050896b3ad91e3656452a9e286dab7a88e3882091b87567e7f89513c6d6377056adee5d5b20fb42821083df7a1e93bb02b87d69b8404624e13d864e14432145bbb92337eeee6dd5948eb5d71335a809beb6bed4a8f912507539f9f2b91c8977b0f7c024f2e084a8c726ca7a221b32894b90ea3aefbc8ca369ae2f074e3c61885bdf8edac930561be2e6de7be6812e1c0d5b22e5345a48a57e8722fb269cecb26a907f06d7fdd7b910335e159ee9337e803021b8a3e5400b344bb566758c3529af6711bb2c2e4b41dd6dfb05a0bc6e34687914011fcf39bd66e185f6734a39b5d84dcc5298ec99000de4e3aca0bca0080e05aabece8ef757ac1382c0eddd424437536669fea2ec89585075e06d77f7993f2b211a30e353f26b2e7479eee9875a7a72cef0326dc5b229ddcaebdecb24f422ef7a0c13806db3ccc41fdd34c6c1c3caba65a9702563fd3e10b0a783373edd1d64e9940ddc7bf720848ae7a915835ee0a98d8e2fb3a27ba8f75c4436fb8c754ea33b63e4d355b398acebb6e6c1fd765e62359d02c7503594ae881936b5a161f2afd088212fbc5b8865eebf09795bd15cf2497bb89a52557a7044164270279b065c29ae200fbcdaf65687d69bf4b40e03ec51ef4492f3c2871c9c1f1fa9b9bb56276c3cedd6efd0979df41587b57a84a7fcf9e4a31e74e020532099ab1d9cf6b6e5a3c55d8ff655a9917f616eb630308749910be46c73e31ee66d778916d431d0a4db5279afdfccfcea961f047a323d082ac82378d56e27f9dcc9f57660a8ffd37f79dbc1d1045b2abe11fb1834bc2bbda75949c42e00f795fe4fb93ad516a25c9fc80f0f0d409cbe45926328d9ee2d2e02cf9786492babfa7c2e0a4131bba3b4a6b2349bba97213542204cd9f340df254bff0fcb05ffc9bf694ad097e55608e0f47fb883dea8c362b988187be4af7946381f83ecb8fba9b823bb2d99b3ffa1a9e53ba4203f77e38291fbbe6932971dc210660315b1b416f871106eee474541b151812d4fd686d507dfdc6d55843dcdde19a1c49765c58e640f40f1ab3ba7289270c555730d306ac4149e67747a9ec40335316a5b0146ea739764d38f206b595e799612fe7ef709f5eda2806eff244084c7dd35550efa0e490f6b2221cac9fabc848d99b27fb2709130021e290c3c1e52a2cea051ac7690d4cc0f5190347e59b91e34f6781b8e5c1420de05e3ef68f49e82a55e7b8c03578ae0c44be41e640d7ea2ab1329040e948ffdac7b9f8624374e352fa6c6c53f8abdb78446bc1517eb1c6198052f8bfe0a21ff80aa1a0862ab8620704d0078762d912a68baca1b42852e9212d8a2b37e8a68157fc6df2de63fb5d8f5f29cb34114daa4f9820fefb40e0bfbe69b9e076b0e04d62bb9753cddd84d047151de1535bd3c72d93bbf0e15f3fd5a0f34e9e05f333cf494092a2ccd1bfbcc656d53faa49b8a4754c2a6f7ba3e0d2514618ecdbe53a54847266449498ea5a15b2f318043b255a109291dfee096551bedabf425bcd9db0f7d1edbe2376e951d6612fe9bb04f8bfa1bbbe41a920aeab551705a7f2cb1061400e79c6493ec0a8d99cb06f58276a0103c9b69b8f303b2c855a74a4c124b76663b9e486751e6d7bcb8e25649438e7c62b8c9b1485e83f8de0bc6e852871ca208811a64be1e0d3b0bd3bdc7ce8edb2630473f4fba2bcb20f4c19ecc8f96edde022cb36aa4ea35e5564dc2adc528ac080b44686d90059350f30f5aec66004bd56d5d18b0b6384ae9ae81367cd92cf69bfb05cc8197e8032c3b763dd9c99f63970c189918d92f4666dc6d237dca064051f30603332a7af53c74f59fb181f04b1b945552165238b01bbc599a7bf0bd0c1facdf7d2e59c2af2afb1427838aa2a276012b07385ad9fe71423915ee9ea767d17ac93e2f841999102b5abe6878d2187d6b8039ecd15bc6f195476a41acff3d7c16f89ebfa35e62adb68e59b7a3d97d9fa603f3da20674137b83b0d4bde70dc0811fbc297cef6c3ca3dd4cd20d2ee014bade2df5088807aad84ef8e1f9bffcbe7a8b50ada34c3e2114c0924f2e66468ae66bb62a227301eee3ea2e1474123390e804794485086ff828ba79fe6393ae2ad5b6e5e736e320dcd20b7eb6866bd48ee95b9c0bae761071f5fd8e7c65cc57b437ca0940aab5a67f5b6f79a4c34dff6a007eb4281b499097f4f4e9d4be36fb896d0597c6d324d6e244b5099ccbbf9ba072e0fae55c0adf814449f701707118aaaccdcb1464d5b8766691735552ba74d555e2dba81c5dd82267c27914666ad981c92aacf46f2dc241ae6f1724b32ac48b2ac986525b96c5a54f9bdff214ddcc106160600db8bf599b56f4e01a864d8da0bf0a01f2da844f178942ed507fb589dce5f82a0d416698c61974b04a4eb83a6da20e0e30a045bbcd0ba6f40c58eae4344628afc7106173f3646e8542c9c85efe8c0f64cefa884a5fd00545b3bfb744b42568ec16ea54ce31f2ebf895ffb68f3f10fd03136d73297189dd9686bd2ac359740f808b79f3b3d1a491ccec5118ff22af8c96c4485d9457a927faeb217b63e19ec61a468f5243e60d5b9e7c9c9fbb15ebc29ed9656fe3e9daea9ea2539e37d572261d8fb6d8ff882905dfeb414e10737629d171a4f702b905bbb449cd7cf74bc531307c3824dc5e38ed8a9936685ca2a7b0594fdd5ec81e75635fb7ae177e5e95354211a791a4e2edd68e31d466f4ab14748471608ba45a648bff3c6e40bec3b4961dcf4759a9af0efeee5830b52cecf7d0fc34cd9fe419cdb097d139c88a9c6def34092f143a6baf5551118cdde82a5b9e389b249b53d20b69769b21337fdf439666511d17239c53ad5055d14df89e75cfbe111201f141986caba1d3524fccd4de4134c511d71a4c46aecf79672d723029615774a0e996d631502619347c2901b0dd413057c6e4d6a003acc2fdccea8cbbac9a36a1103fd536ff8c54faba247692ffac0113895ebecc4250cd7e2eb0546bdcc40b7a5bf891556e38b8930b0f495dc2e13392bc99e1754df58d281c8ce40c410629b01061be3a347bd9e1b5f2fb84e811bb5b28058f405906081ed14270762a40e2c6b1be546dfd5fb95ba6268278ed6ac2996de56b95dd3a5d818f908751d843956ad2c41ca5f494b8efb5ba03dfeb7d5eb97d10c0d88650ab10f229b6e66dc01e8cced20868e4e0ba19958f6de552d3b4ec6b22c2042a154de6a4d492dc3ff6864abd68b5eb4f4661a809530f5437b34d34f255f9f724723b0725237878acd8ab5e6bf3120a6729299f19b755dbb640ee653fe389def8433268b10da65645550f55c1a8dadc9ad2a30e2b1d157242abf82331d6846792ae7f8c860ea5e6d59e89f378e02575ce0aa027005432ab7535ad2db8cebb5f7d66d377af2250b9b321102ada0c3c7f2b8a5e3575e38283b1d32b4f65915b5d50a0451d8bdfaa0e2ac6be86a166e138a8dcea8a15444bd5a17be3023c93cfa7a9f6eb40181526d82200b8b64c96f556defa6d77479b72cf7def8bf4eb69463f18a40d11772f890da330a2f83d3fa22a09a88329bc47f540afa51750c95b20c614b1e3e5d6ac0468f17753becfddc8f7a6ed238814065db36a5a8d2703415da9b0aec6368a56bfb1c9333423dc2124009d08f591bc2367ddd0525306cd286211d675e77cea5aa72e91c9a72ee3f726a2457bb3ce0581a1406da11a4929863673dd285be629514da6cfca17c52efe87da77710df58c64c5b437bc94cd9d6afb74adec7afb83337ce7dfcb09e5620b416c9b923af96c275cc74d8f187a4bd6f88f76afd5e9df99247f6f91bd9f09946b92cc2764b50a01f6adb02920b21b4ceb31c61c2ef1d62a3f8e4e4f915c00e765b3a9e1f39493bb5fde00086bc0f65afd840ff7f25de716f45bd1c2e12e35722916c6095c5a75e0126da0000eaa475ffca3c935b6e23c7483387c21b076721839699eb24ff92a9f0b251b50fd6aa4b9ba054a271d036d43d6792a78d3dfef993397c7effe3e33e3107b304e9254cc455b6b340ab4a350208f842c0d4bdc7941888745330b577c3ecf7502c66ae5c7863fd47d3132c44c71a3b3b491b6ab7179fcc01cff4c0052daa1db6e554268ff284c32884ec27b93f5e159f3b0bbc2cfbaf1e70defa302095bae242efe4556f5c29d80f57fbb3e46ac50ebdc1575803e1638979286a828892665b2bb69a473a5bc7e02d4555e544c8c73edf612e1c47e4f6fbb70f2abc740b0ce1db4591bfcbcf751baf4ed8e95c8d48c68bef58bd96c0880a700b721014dafa1f7e36074a212cc33e1466e2ac211d32b2cd761b4142c31d1a7a252f2d5d9a9318fafeafc600dba688ccc54b588a9801739666d647ffa4115e723b3a97baad27887d994c34974e47664245ee9a3bc2113de8a8922d4de85090f90c7a4d0e15a6554278d18c2bc543f31b0c7881987fc84c4c6ed7244f315a73017d865c93afcca6ea2398db22aaaa68510c62afb73170a2a9b5e9c94d56f853c611148ab28c9ef4f7cb5e690e7c41d581e6a319383117bb6243b24479b706d48c3ba905a3db5fe04398530573d4d183b3e28fc4f199da6d482754da5ff749912a61c153c1e31c72d2ce7071895efdbd46f3e50a3b043bb162934977bc57d841acc88e1cb6395b749e3b409f683a16e057623225dcbaa739e2cbaa970e57f72b617f9f45866c4002eaa2302b6cdcaedf0e29c184c8e64c0f5979487f87a64e330d78fd530c40882ec46ee9da39b769de767795b2e2d42ca3b5c8d8d7a71aa52e9c3bb6d0d03b65df65bc4378f472d4b8f6e203fe3fff98c18480067c5d5b42e2697ec3e7745ef8710a76f578827e6e8c10bbce8ff4e1c85857c08164348d82527d3a49d6fda4c8012ec51f8b8221050c7eb7beb40355b36e3bb0f08057448b78d18d7039bfbf64d21e7d7806792ad8f25a60f3a9bebdd21f86f6b292b62b534e60feff7112c0f05153207ba7dc9e66f7d1a3a7c2bd6829b4d229b48098471fa08c4a2123594d1a91b75b45bf85803c97ca654800f10278a76c58e0f8287ef0853324ab29d4fa541e4893c13b4271ebeead2e6e80592c4aa4b998c94e92618a7b9ded3b8852060981b4ad279be7e0e67a990a405bd9e729b001ade669e58fa1fb0f2ff78201ef4514dd974412d80809a9433af5ea4ded9680b7d65eaf8cad375aa2a7799ca15e5dfa55879eac9a20280866293da70bd1188cb3db5f66fcacda1a239a751eb3e07c53ef2916caf76da6feb7c5e427874f6e3aec5b58fb887a4b02bf4c1a1a27a998cefe3f470157ee293c9a9daedb80c9687bd07b920fb02cd26c72cbcd80520d7e0129538238279d29dd17421476a32f177f50d435427dd969714c7cdb68f8451399b04012388a6d11e6a1329461f0dba6d323abfdb4c1fa69a4eadbb868f5ba3c2d5aa09768dc3814e1024e20f039ebec2d649a7986e503da2b88e3314d47922046c13ff0b26ec40e16861004c5c61fb6a2e8db19dec0732cb4d38b2ddfe9c4e5425d28c7d397ec405316258c7bbcb460658a1a6af9398b17a7441d4150c4fb9275aaa17d9b23d1160303784ccd52fddb8ca6dd3d4121813d24d9397b68374d6dc30b7211c3a8355af2dde89fbf59ea2f70ecce1c2e5988023444dee52ba97aaf5e022ff31a17859c9c8e662253fc7fe6475009dbd71d0468693ee80d2e28c0a334d44cadffa08d24d0e67dc10b4b2804a531f62dcbb2c40eeef220ffcacf061dda7ecc4628b7725bbafa1aa615afbeb7d0315083c4ee33b6514f545699fbb40ec1c754bdad4c4470fc8eaf16ee95eb2cda9d5470328813af3901358f642f96ff401cddf9ee8dcd960a69b0e1d4a23058b2f241a19655009df0eb29a005dfb88d65f340e7a057614c9b43ffefccbebef254a65fb7e94437caac0b7172893d42d447bba975dc80f0799123e8cef981ce52e02528865220cae21af662edd39c976cda4413d995c10280112daf061e0ee4254d17059b11f16d244aba38e58bcce79898c3cbca7476e51511519d7ce5f7027a115f7af3277fc558c6bad3e7a3c39c73d820914000dc3d102d3197cde082558f5ce86a4ffdc2d428016fd95d57aec77ba9f592c76ad21f126430e42d7df6730cb3a45a3f8639f33039e233518999913631189cd45a9beff9ce80c232a65f9c46daddf193d7189140337d9bdb2e225a4e19c799b7eada9069305747cb626e8086e67bc48d752598ce4c4e6f37a9dcf63101c5e4d4f497332874f019ea25455f9a4688b3f4bb476bb6dd167d26da5abcdeef5e776243ce6927724d9907e40827a889f89d7a8c6b0718e07e6f8efc7ecb521d0dfbc56ac0a42f76a87a56ff20db28762f60515446521aa4ab8d7c2f82c05256ba51618cf8d477803896a69921e85eae53dce262dd3e43dc84a26e9b7057a9a150f0bbdc1d31e71b1807652e9dfa737cdc835eee4f903a7a9ee82b3f92b323f6d5d9637a11a9593115f8ef92534d95374f3095673e8ab4fb2f8b6c7481449004adca19b8cdb9e0357611026c54e76517eacf8508ccf62c65724ff634b2e5d8a3dc4fd390767a17c054f11b4c6ae401dda6bc4cb65e00cbd28750024abc4f4c52226b1d2a763c7e207acb7a0607c1f6f3f59697bd3735fea5639ec11241d9eed2bb510e8192a52478e8e7ce96d140465a96741141cb5ddb76f6a0e2d4f65783922d2e0683766f6e5c66e68b7959f20d1a1eb8968adff34569fefa581252208f8effa5a6d423ea490b992230fb9848a3170c3d22b94d0d9e9248214dfef765819dad7a177b894c4ea071644dc983d323f313109a6ebc40efd4d0711f8c38849e4ad19a1cd5928b80fbf212253cf8515e1b0cfa4a8de2029af28f1541f2634d384c3f368fb2138773287ddcc216e626cc828cf93f8bca3198e2e5e0d7ae3fb5f1e11b56029473882f17ee4b0a944172279b97a8c98c2d2452e438b80c906ed4ced8b1319be9bb89b486b61eb42de5600494e9bb99791753f3bec5990fe2ac299369260400e08875fa926ff66d325f45649c4ea601986d26ca32e9c772e80246a7469cb1fc458af0130795cfb93ef6b886dcb85cc52bce660540f5c604c1a84f4d838fb4bbe1c2acf1e23d99295b0d048b56edf61f9e8389d12266c34e471baab2bc1d7c1bedf0e424fe60febe85ba961f3e9728f5eff31b372e76b8c19dbc0ab7584d5c69dfacd2fa69fafa5c36127e58f97eff6a4d2c1f2cf0a609240b1a05d5236c962eab3f9e4a6b3bc8c2c59cadaf7d581a0b2536f3eb1e10da244ca510947d9265c2093f701bb302bfff63eb97c3c8776826e4b66647c48b1229ad7854783222963e7edbb17e70946e165c1db0e33c1e1afff10c0774821e8de17f5ac16fe7027e2738ea5faeaa36ec27890ecb3f69b5f5de5a3078a26f4d63ee83df37a2de204a80e4eca91c6edd8df1b0190f33988d018b49d305aa06877e0d4ae0e4c8e6bf748770afd52205a2930d5f43091892826173c6fca3c2a753f0639dd40b436a423b265de2113e7635552fe77e590b6d9a66fa582f7070fb0a32715fbdd8d4cb0058017a0be5d0a799ed6477029972eb75380caf377d6b10e67db8fc466cf8829369a499dd01f6be562627ac5dbcd175a8a78d9898e4d7554c7e43bd87f8a9c8ea1275403eb831ade66939778234c4332c8a06b807538df40857a95da470c48abf7768dc67e323c85c9067f43d7f47426d8b26600fe822112d1ac45e78af5687c33596248e457e2c5a5f74c2388458632237074cfb84fe6003ef428d78ca14f1199450127669fe70f65d0fde950cdae4a787db76cf64c2a9ed2dffd33caea2330fc8d9e67b522ad41d61d4dbf2dbe0b6aea73a4fca274d2186954bab977b43cb6bddb02b19b1abefb9a68b12b6339e84cdc2715e30647efca8980d61055d42c22402980614fc3faa1f3a4b18b0091b5a7d88f587ddc26297ed93d6a6dc8444dc1422613313577ee850b68691eab358888bea6cf486b67eac87dfdc3d3a51ee12529ff17fd2cf2154d26424f5c5d60cd5bc93ec33fa8494b159f915faaf078907927630453dd655506a1442bc89f8229158c8e38fca2cf4cac05b4a37b390a053baa59b01aa20a8b2158901e4aab7a2a15a2a82378a6dca2d4cf5c31beb306075f6cb9d8bfbacc83e9b16dbae619a41009ea86e479c90c17f25555cd8cfd8d5fd3b923f2ee2543bc684a4f90e4f005433d8cc553c28e8d0c8a0fb4d6178043d09bd1fdfbb2ae7c021f356c4008e07faf2a4745d4d5070f29e920457a927e644edc8e3ac073f465fb3a6ef853c0e5711e0ffee936dc5546e720f75a6909b9dd261af3a23b8c9cc502fa0505fc54c83b033ac093d9cd066c4778167a110cda7fe9af166b72a6a91264ebe1b9e0791857ec9c2c17acd79f91defd4c5c2efed61c17813771ce3d92684e266bdce4b2016b7e221ecbf62ca900d99b33a6f76b69f256ada17ee980f8758ad189ddec43cd85f6688e56503157a00267703566b7053eddd35a3fb328807efa3813c53bbd132a9f80e49e2061f8c4223af4d1e27d3f344b367a84c3ebb50073841c6f6c3a06cd8d1905164418638540ff801fa5fa7f4cfe3511e1d0829d558860db2b0cc3c2f4799ee12c888da3b8444d6c2f5c494967ecfc170c8713855d070182cfbbf41b542adb32e0abd38ec49cf44bcdc82a77de762847f4db1a14e8afcfead591deef3a45392a9343446f537a9aa6a3fecfaef7cc466bbf8142fbc3743bc3d05df31165adebbaee7225c7ae0dc3828a5f7b78827f68a46d2c9505d63cc0cb38bf08d4e93b505ff84981b0cdd616fc2fe448d37bc435cbf1169c8db82168c9e62bc565d05733e0442e6ca0e3f0da2569607eb67bf0958b082b2a969b52613696e92de0170f162adb5285545746087bc459be74c8403e4f47f22fa31d6d8162e2df19422dca2020915c797c6220a99626fc2b6d23fa20f8584584a03aaf58b6c4a81eb79431c198a1a1f8bdae7071cb226ade0a4d7d12170129e70e9b8c9c61fe53bc57feeae53a582ad550866d5ad59292293e4bb7510fe39a6f542c6fd3362d71c5b76585fb2fe4200f952daac2246e84a49f0cb0e46f13f9d455238013beab8e94fad1d1691361c810e4bb36b236c21753d1048862588660518648544a62ebbaf002b4a6685df779fdcb22e483e390005fc94682256c1c10d933e247916b6ce8dd5c42c32474d873327cb3ec276b45b5f69c45fedddbdc41bbbcf4abcf5038e24ad256e385137c95922b03f1d6c2cedb9d0241ab3f71ddc620386207912b8ac16e6a36429988c4a4f8d55b83631dce5a6821f42301fb3e5b9bdeeebc5779d986b6a7d922ba3e795f8d9cf5654ecbd23cb18c06df3a1988711c0cdfb93ed7010975fdcacdfb23d782df94f8ca83f5dd90846fe159c3d6cbb2ebd620b943d32dd7f7c974770f3a89385d8f70fbaba7caf5575d0a4a6e39a2f361ccbfb88f7092fb8aaca2eb337ee4cbf849c95a2b02cabfec273eea36069e8304efb549bfdbce95538b90cfcf74e9eeff4b0c73d2f8859d230421c1febe6e64cbbc6149358c4f956ba24a8e55e8e527ae9d1a1353fb2b59243bd9451d32ce0be75bc84b6f05009eb54553323f9d0adb84de6eb02bbb36422a6cff7545801087271824222c028bfb3c3bb354adc02f0f057c56307a7539ce6640f1d9ef3ef117a0c3673f63b29a4016abc18e7eee7247885c2a11649c60f05b4d08f8ed761c571aed5f4760342dcdd9a9474b76db4b3f665e35fb6d0fb7a1cdb1419c570ab50a1b7f12ac85f8c0bc9bea1f242b61c2e3ea3e238e1d135f873353f9ab5c5cc7f45037b5c8a417cce7152280f8cb4a8c7a576c2b81e49d58dcf1fc04b35ad7bd335648e5b9cf797f5673c2b8ac24bdd4bbb4fca85f646c1c17b1f3147e26dcce6330dc5168635dff4af70aafbb8eaddf5dfa28b18a32dd42794335c1623bf20e0653d1ce105958aa87409c94b240b590b53a4f701dea1766a1795f9de5874b90cca9a96030fd2588d9f67fff6c00ef476bf981ebec25bec59504032bcdef51bf1d5da3084fa21f72bd9bfeb196f1faf9fdb4f852f3567ead931587c69b7c07763771cb383813ababc75ea03f9325b57145ce16d4b643a054a7fd92c891bf6a385888ab03876e404d8d7269d90dcbc154f7b799708874e25e2584d915e15892136e3f7025a65bee8d6678268c433eb4db99590f5daea58a9a21b2ffe851c5833a8da5285789c2bf7fe2827f10195a5ac7e48da3de7efde0a61db6b94a6062027142b1e6c9337872dae21ee80030c0521c440c215728eb4bff8f968fc1cd283d34098ce567c6cbc235f71844ac73a4a29896aa6f6d954b41b393126cfbbe2f547f7a9208ada4ba4fa418bf9aa0529ff4e8173b7f37e9d264442e173ae5ffa6a89d9cf655837121237b63fc66543a38d47531ad7a8ffcbef4b5dc6fe3e6178b1f1f0858f3be6aefb5aa23d835c6a1547fe28bb4f1571f7b897c36e837f1854a65ad8781d7a4fbaf7ed7fb99ae42144122b27606076ca06bbf47cee1643b56ca765a3ef88db2137ce5962ffb450ca945bd7e62e2cdf468a837b1c680cec56ee07932478340c921da03f38f5fac49f7d6dc805c8515ae4036cc497d3294e059c0074091336589a6a6152345f0772b03e23b3f0c863a628e9f69087fee17f0f6b45e5bf641f7d367216644b9b9a0d8b32a5a3f2238cf2a2bec99ea67ca1191b57cc81e960400e3571ae775dd9158cad6d394f29c0e931a998f3f4ffdb4a6855318c0155aee9a2f8dc21497186668325f0a36ee4818211e2f1874c01b2b43eb557e9dbebdf4c93dd31b4437f95e32a6d2c16f0c4e829fb1be3e790f334b5e1c21cac242ceabff5b9d8b1616de1a02a6ed9b08253c9de02f7558d4cf8e5fdec9dd5503170b922d6ba41f51120ca20aed35fe85dc19fefa52133cc4bd4c2250dd0d8f94092fe9a91825cc9605bbb5427ad124f57b38a02d26f0789de0ee2a4e18a784034138034cd62e4c65daf7b4a5272425ee609743bd0b8565026e0d821e126de9752e613c8c0ce7c9303c292dedb81d8ee58e6e689b4dcd34510145a33209d634801e4f12b151270a7ec1113a17d8499f2ef040edd25f3db28f10725e33257f5e2a45a367bb2aca0a68825c84c891881adb6cde1b9180a245ac09bdf5445f6d5040c385b16a6f681c7343376a4d58efbc8128c065cee9b5327135db95766b202bc79a4b08798b315f7036ba6139a23dcd187a525ebcfb6e8ac38eedba3a2076f5199b1f72934db9ba7c2d74e0073b2ccee8e42fa77d3fc4cf277f1e596565623e91d5715dfa4b4d546f6c9dc966d610c74ecf60136a65be36b4c89f6950ee9237f5f7ad73b459bc857b0e427f7782803fae541e598c8d153a068af5d00b677d89daee7babeb5d2202d87aa3243debe1c6e9e3cdba54a3ca02911549968ed844a3e8aba7e0431f77c79e54fd33811ba9706ed8f942cd150a5cc916b66968d011fa81da80c1e9fe91b6fd805eef50d58647e322870ef15f0e9da4cf0c237f267c88534a1c77785292ed340080eb0d55a5569a6704af1a8daf7d068960e6c85e2af3eae62e674161dc94e8c2018265868d1d7608b922ecd24db7b496eb1bf8988e56788167a8191e78099d8b3557c74f215a2a04f155ae4a09f5f61e1cc782c3c99423ce27269772782454524ff78a02c5baf9db8f55289d7d4f9271db9b4dc282d5d347206b2b81e18eecb533ab55417555f0f22c9af65d85a4070d84e3f54e540a1d383cf0f38a372f15b48cc9a7dafe45d2550a4832765441ac253bfc7fe1d8eeb16842afd472c71fb7d77c1b754780f2a508fa76e897040a49b013fa2ad3c63a20c7ff6a39b9119c45a2ec19ff834d84aed9e32200a8c075bd70e66bbf1150756f17f3dc9366a6cdef5a17c400cffd168caefb1ad064a30411a0b3e563e08c4969d253aca2ac762a0402e6b7cf0c9f5651b81d0e0a4c1d77f8732849ea0773411764c0107ec63584ca7cbb7c92485c69a55bf39075cc75240123d7c939f37e177ea1f781bb2e0bb9b95894f29064c57f1eafa5fa6f1be76f1f3185c0aaa85a0b736bdf2e8f09fdf2f66b56de012825aeefca827d1b74b8f04fff57a7488614cda52321cc84986280895f818426b3ba3ed7f2579f3264a00757edcae742f68dea472d8eb8f85e9478c9000e985e04374e8cc8702571f2ae9b04fac43a8e02f614156fec9dc85a9dcda192ed57c0230f3e821874a60d20613d80730fd0954e7df353f91d615c3f86996be605befbd5c51d060f80b9dfdc456473e34bdbad04a1d827365c200354c914331e2ff2780307a28f872366a209d4065b7d629b7bfd5748c2049fac445b011f4de41d5cc40c3abdefe6b9444097673646af3ca8c537dcb51833206fc435c4decac93f06258eb137c9593f65ca311ee61ac280ab6e0a3eb861ec335c1ceb98e9304dc1219c7662e54b374fc22434ea51062154e18a79552c5efd2ab5788e7efc7dfc1427e9576a999b74bae5609995f0e9f34ff6228fb7a3703f04d548c2d652b1153a2750f41fe1c41a96981e2c840eefa18caf3498a8d8321c53c0354977cf5347259f5a9f61ecb93605e335b4b6bbad1ad187383d4d148c74c586e77db6b73a0a2f3c5f566301dd61ca4ea1a64c7bab5fd2dc64b01bb170be641234364f73daef49bbc99bd9a6100fc0c5f35451991647fb33abdd33613d39461868528cbd3dc1c78675d8fe50b510d53b5ee7ad127cad8b360482658793ba8e6ade309a983733e01254e42ae67508c4868bf7f0ae8d1b8da3e840ed655ceee975ce562d30c052213ef67d1406c6f16427d94c11fb8998c98d9f635e1d9b0f84b9d3637cefb31f0e6b610e782350e44bcc3643127dbe3bfe65a0e1c169d567885d87bd289f50977c60d40eba229ea408fd462e9287a7993399f09b43959bde4d8dcae05d6594bdabfe73168a7e8b4fe6074b5b50720d45d28561dac8af675d35e06a4ad07e8544a3858dcf0f650087a24e38843fe9c62a7d9201e6adeaca4857378f801832ec3dcb1788c114a051e1496b484706bbe1b71f9f73ff5f9e4975064a00f83dad8aaaa643052e8784d9e91ec8d930cfcdd0ed69050da6659b28fbd22a72834352dfa07940850d4bd49b7f592c443c00b72b28ad74bfc70e9a22d53f7c563ef6398ff8170c603857aeb8abfdd76bf1f036756cb804fc456171ff27ecc1b0fe930f0e021e161fbdcd91c36df91123c15a51d11cc6752ef8ea0b3f486a6421f2b3294d83cee7d77373e0d31e610bb4ab8ef75ac53890f0a0fdc015367011f7bc9ff7d459002eb0d40b6be67a087c4b2b791c92d993f83599593545bb29d1845c1b549664aadec24b7f96143da98c27c6f43715bce8a557aaff496be6e7cda12532e1afa9acc83ad6171268c9d997f26aef4801a110e82231788c7998b716f4b5b4461c0d3f70fcad7720e0ecea321f50d0dd7be3db8678abdf2043539dc312563f844975b08773c9e427716a20262c9741b5c82dd1b61178748da6c5f5258c77fc9f8f69738fd4beb66877758c93a91a54002862043f32b30de73c4ab4b656989f5d9a748327bc8fa46d7da93faa0be59fc153dd46afd8d5c1d8f2651e3ea987d3a66c995dc5c8c1c245f8e5ee6a0f3a825fb2a7a7a4deca9450dadc340ca7409c16a921c44a215c5c1c1311317417bc62c210d2cc28dc64bc747a1307876338cb086d299fc6fba10c1528d26d5325be57c4953d481e4f23a55ed3e35f241551cde379f7d080ee1169dfe1d307f0e8689229bce40e7805c7f0d369033e3853d372a6fe3d3fb07b3926347fcd36cade0cb6a309af0c541a0e950b52718b990531ee22cdc3265a25094b1574b549fbdab97c087e28784f6b1530d3bfede36ba75d0937487ba26800ecce65ff4b0fa8cd246594614b53d22bf79559eda04c17a563b0ad7f92e0f8833dc900e47705fb64ff49c9e878302dd1e0f4fc5bf6db44bd1573c7abe75d13bac4cee1dfaba3f3686e392f931efb763dcd837f078b4258d59a74e1ff1a51b2d878d8c885b71ab8023d9eaaff5e8057758911921594786c02065af5e7eaa175dd022f35b27459083c3551370907c18080eec63375528f6473afe7e81958af5416c0d1b5aca2a682329d86b039eda26d89253b4e56b9289303dc9eeae57698a11fbdf0bcfa9e5533acbd74be9136845cd0edbe9dac3df35630e3ac5fd147e1386655ebdd888d204d91b1de3577cb2011049126fdcfa79d5ca7ce91c153ff839e30b9c82ce28bc820e4ca791956eb4b59496401b5106852b3c634fec305ff30b0d101aee39666eeaff7642845d91c4bfd8443bf67779cf9ed49e9acfff3fb74a38f6c82051419064afe073ef2e9ef821d8b3aa0869780d083dabe986be63760ccb24af0e030d0a66739dfbe977abfc7e9aac1227fc96df0582388b6ae5ab9a7d389d07f17f6fd1bbba7a1f86f56a7478b28be09d9d92b5a6a5cb2352aecda82d0b42f8abb01f226ad10cf89970432ad8a760adf1e7725a0b5c8946a19dfba2740ff14c7773ab968d75cda8ce50375d05104ec4644ec6cafdc1cdf4aff424e1bf073929083d515699ca6f3af3bca5fc7e11da5c410a0fea41e047d0f16e3f5b5e22f9e22238cb046d714203cf5402782f3f0cc6d697b8807570d6f180bcbbbbb843dcc2e083b4b8f96677a477108eb8959454b813ffbd5a8ee69658a181959a44f3a157c6a46dc9da7e69a05f255ca94969071833f326c76993b8b17b0647feb3279ca9171d6406078aa0f3c6e329c3de22e658a842af227fd34c951d69cf272533a2d81229e31daa52a70fe177324aa1f060cf7d7e287cc233fed06a5c1e750b4fbdf25771bf613dfd740cd00d77fbcd58425eae9d593a3c99a6a224c97a3f305beed335d00214142e953a38ab3c5bfc61f1d3e72e15159c6283701d0113b6e5bf839737d33e227316c3866e6f5b0bdff8ca3247608e3196a642e2e75a7079679f1001b28dd8fb43ea909f229fb00a6143eec7b5ccf39e2262530989cb69ec5d4b2a6efbe99826b9ee763cd651527f8e53b5e0eea21805632d835b7a46578205229dd75fdcf72586e073172560360c0c4ff39cfe5043f55f2a58f23732660fced66eeb50d919b1bad2fe9470b12a488a18086df9bc7a48c3292f8bd43c14d50cce328d12eb38789e116f305d9596311f638e4423ea7a14cd306ad948939c0e9e3f4388b2ccbe58b7125414eb7f0b10037823631b0c140b16172dc5e91efbc92222f0b3d9209c0021b44f37f3d12da98a8e6d7df7622e9c68c44d0d3755fb5174a5b46cf7157b23d22c76d93d9387c00243b1b534af956ea96deda16ad85c402c8b0f8d5a158a35a985be34f8e461528902926977db6e2efc07a7ea508d8b7d29d1a7f30c5799753bfe923010bd0875cf5113f2fec7988d78a2ee4ac282f4c7d2ece6200518d973c9f4e77a7f875e5c76acd4adcfc693152482068298496be616687622fb72ef3ddf11c71994cc2812ae61d830b768e719c98fbbeb145c2d8e269520b142f2d229d277e66ccff555e0d097ceccef49e55f4242dfd5e2f305585d460a3104db88b8b54000ad8746fec10accb2ccc0285e1943b1e36a8496716e85e8113139a4fcdf3d02d3e9091222957bc1241b341fc8c765f4b63475b8c84995e4124c8097b4c777265a9d1d1e630d372144677c50ccf7d5423f883350eab15639a2ebb170733eccb344d671887f403cb306464946f2a552a8f3c5ddc078d88f8973670d1656920abdfe1751f22776adbdc39e8bab8bb546f921544e514fbd8020789d14de9853698e4c70820577fe12b06c6352e2c4af27fe4c84ee0d16918e22c64f86d4e6d5e4ee275ee7a93670ba8b015bd76bcf89435b4f8516a50bcdcafcb8086afc3d5799e6b95adccbc0e254d8911722efc01b7d16bd81785143087b09a457d99262098573c1200be7a82ab1c11fa6e07d8a2291af2fcc201b2a556e74d6e44631a6b5123fec0972dcf3ac054981dff2cc5fb2d5be16eb5db18a39c98fd3a56340b5f43e7167a73a270bd06ea13af283d2d90546a1a681707687df54dc91cd4f1d1af53dbc7e5770ee69105f95ff6ea811c647016601cc8229dc5a4be71e6eb2c687bf20c1cc86a50aeeb86a4a476891c5ad6587e77186458af23b69d55b9109f1460f909afde5ad46ed5d51fb05ae0b67dd8382bf6c9f59b5ff28196872c1ecb0028f68311db92bee52a3094713a7a17bccd4bc5e943f3d36fa8000f1e07012c7de07f1ea564602a1118e5f30e75fd5d69ab1fa2a5d2e4c7e60d5887c1746cbc7d52de56118149a61b1453bef152e8834f5085b16822443965834fb86c53285f1f17df6c41721a9e839a8653128b31df77e1e11703a941b3d0798236ca612091bc788aefe255310136f65e82654c2f7fce7a3de8c2ad147ab30fff69b91f1a3e5aa35fed06b03d2255e85d8fb29c19ed3bbf00bc7c4e7a1c8cf4b90ef1cfad37037cfd078f2e8880b0f9dc18ea5592c7051022d3836d9c9da36d39a6ae1e1690c6e5ff5c87158b4609d48700ff6152c18cfe26060af355eeee29a0e7b28aeddd7bb3c31897ba894a6ace2ed7e0ac54af1e56d6d86dabc52570a5ce9faea12628cd9e83c348433bf9bdf3a2309503391d74f98d913dd5baae63438d694d0c6be52e93ee96e8d822108a5ed01886a03feb0f19332927648ed6e392ad93f9c25bd735df707af523ba1f93506bd7f3d9c08608c396bc4c85450182155391443dac5cdbe4a2a1ccf578a3e5f1d6d28e734f4e22aea97b64304275a37a34c598ae2a00724ea50580d3faf07554e79a1346c29abf7420eaf6661cbebc8009497f8cde1774652a4f06c328fc5b898cd019283528763dbf8d53f377cb512307e5754714c12d5a68b229b7c2d319a0d622e114cf7b4ff3f74d60f060381cdefbec8c910fd70f165caf92aefbf1e334ff36b725ceb620b4a276b7334d9687cbdcfb22febc193315b6d8773c5bab7122da4954bfb085ab8759cb221b8d4133f69df4fc6eaf9cbf1dac27f7346796e42596a0d002c9086b93a7e6b9a503d91c907e19d1b65adf2715f3b5483e5a48a14cb8a4a49c7c72ae86c4919f559e26d1ccdf82bf20bda9f14917d9d21a6dfcbac3bfba0ba0090de9dca15071f34e103a81c113fa28c3732c8feaa63bd8faea7e7421df70222910ca80e4ef7b45f7ac6ea0cbb884a3b0646b08234681102d827ab3b5901a6e77239a430025151fda0f9a7c64d5b1c70a8ad55481b26002b56da0d5049212ea6a2680d035e9117361e0208ab4a4e0ddbd603133034e0e36b47d2be3bb7bf95490c6dc3bc7ba81c2edd389451c56c2a7a8a7c816935a32802b923360fd8423e857e35b6f8f5346957e49872eb8ad97c2495c9b4249791db503d5d3bcaae9d49a3f05acfc527f3f68522e90bf0b6a9fe74cc6ebceb726e8260daf1f44bcdcbbf77dbb3ae053ec01d4794b3f29aabb3f347e85d8e8a161b110c1cdc0ddb2fe1c0f411dda3f3c26404da49cab3ef22c6f8dc78831d5e5dfb7c983be462f17d63f8627709216e493317068d7bff1ba3ed6aae62efe58b0acee41cfbeef9ef26c828a906d914293a256463b1b4969a4dbfb24cba4d2919470eb97f0244db7d30f430e6f63236c3dc9498d4019cc0e4f98c53494e26f0c7326c1b0ca9b5088047552cddef1c1197955bbbfbc3ced770c61b8fd42f4ab374ef9df62dfcd8571c886bbf1d27366e43b33aa20e238f5aece56dac2ecb9f33ef739c1c78bb822be6db02d82f585715fbe5aba18f80dd3ab5fd9ff45c385c5ec3fb1d99ae70816eefa959fc53fe0d439d6d6fcc9bb73b84d60c18c01733e500ef4721352babef57dcb11792bbeeb478e2e5dea9e2713dbaf886e116dc143f50a2a9c7a9f86c4a99bf6b1c4eb29a24bcecd508246699b082a68ff12ced99c8c56f916fde11d964986be7555d676bdc09a2cd009e4f5bc0b0d268d360ca8a628d7fe53d5817910cc4bdf88361903dfdb266080c58c97eccc6d0b58960129d69c5d0210f768574e6d85645232476138c254e2d65bc128a678696fd5dd27c62ee83e7993b109ef0ed30ab3cb09bb7275fa7acf168276832b60401cbcb54631a25cbd36eca91b2f65cb532fec96893545c8cf016c0d126b304e612a6fac9a00a446ab4be2986661dd697385db23a6d2b896d31498d2e59d0e4b1f268164a0091a8c65bfc21f40d5cc380aa85fa2ed3f45bdeadb358e0a6e03959339e3eb83868affaf3cd6116d13937a8cd3545c5ee8413f079bd5cf7da2c9c496ed98a8cf8e753f05a3395eed0cf557b6b71fcef0c924b312c7c21bffd170ddebc9015e7e8e8b14d5ca8d50cc3f28b88e81275ccaf06198849c8268bdb0aae64e016db47cf93461004adf1bb81111081910f941c4c7159deb15fca8b6d70675a1dcd5d0f2f6154d53c0046e3577faa8206c56eb7fd08e852ce6448dbffc41ce32ecab9f0537af8a1d1b4da03d2082d979b860cce1b56c97013df650e874a254ab3e9a311036f131dd3e82b2b007913bd70d998fffe06d0e5b1ca5b405655229a4c59b2eafb434380f6c0380c895b0c24c1bbaa67ed227205f421a4d3f9efb003ea2e4ac643512e9aa20db0aae077c4932ddbcdd18a09ca1a87e8e87cb8ba4cf67eccf466def30fd7221d3707d13793e3864f892827fcb7eac2cb27c8430fc22f1d1ea0feb42493427d79186c36cb4b7c57b56ba881f373349330a54a73e8181d62961d9c9af87c562be90ff8a560b5045726d1064ada48cd80d43a0670cdeeaded0dc5c5c807c31b0178aaa0ee5a2d766116459adbf4fbab0455e2b7bbf48e2151360bd34f74e55ae9d087d3bdfbb1de3abdf65c853b29cdea4cc224966d439583022a7eed88f1b94fa1234d3f1ac02e48f518c90a1e8c92d4ddb82660bc1f150c9f29aa0cad99a739b2a49550243186e2b73207928f7811860a66f3ab1c9fdfe3e4b189d73a0eac0a1133bfb20609253eefbc7e6b1b0301183583d8fb006905e779e630d182a2c6b8a71e28b5233475513a0a4a452bfe0fa29ec700a58fbad192643c18bc7c5adec079354b4e0b9c72d2a30b7d835eeb3d36272806deefcf10ede8f5b0b8c5d8be6d9639981adea9790131333c0bf17c5ccec8914f3a6572ae020bbf1ade79225da85c38151ed6b0022b511da097952ac6a3b30e354b86433b506541ffbcead78a3c78a97295e3c23be4c424ee96c00bc8f8658a489c99fea57b621861977f6f84b0beef4ce1fd41e270af89651bf7293f6062ebe7a77b36d382e8db03c9937967d596ad5a0aa24f7ee9d9282ae9df6139810b5846d10515ff2949179dfdceeb0a0a9a8c31edacd69bc3442f2d1b56ad43ee481ce9c62175ea6c9d78716909f3f249c7a4b1ba8be6a5b9821ff19937b313a392b0ab41114ccac0b80acce3cd3959c61ca9be770d4daae2a17a571588eed00f0f22522820405dada9c03bec4215f569ab61eef16c376b4b2e784bf35ad84fc50188d6071d826dc84e7cd309c6d0bcd88e9dc0f8853f54261fa3dc0746c7446e81a6495bdaf83345310f9a5d88ae605d3dc93c98990a9efbd94d6f66e84e64b101fc8592541ac26dfea786872dac8915fda49e99d0f5bf5e9a7c76d28259aa9db7b22283557ab100ac104c4dc844ae77cb4d9b625609d531648b1649342130d79474ec83cc21203c667c5a36b5dc1392bdf432be36b797c170a62bd4be25c307b2c16e093cc98d366630e55d6ca04ef987a32d867c2fb7501bd7fb067d2f94a0f0ec06d92a923a6278a24bf846f72a2daae340f1b4c42291c1b9c44047adbb9baebcf902c32a8bc19c81c11f0a0866e31235e3e0db9a835c6f4330bd985444bcdf450f40eaebc8d48026c4b1dee460adcac5da087bbd26fb2364443d41a77af4216e58e7ed7ccc0b03a0651c431d2f15d10a9291cfe5d9644fa88d2095147326dca14a1ac4096ba3c77570e06bcdb01652b13919bb03f1e5c351b36aae50dfd1b219afe32106ed584469d24bcb580ebaa6e80385fd495f5293a3c60f88b963b48e91e4cb41b867db14d18f3c62f4f030c9164b8a51efe6268ed8f2eed4ad70be96f6049e12825679cd04aaa725ecf4033a74ad94c1c1569936360ca1e644829de054cc50dbfcfafa21a78a1d1a51cc08d26ae2c4cb91e4fa9b52e26bc985274bb3f37e24af9bd66279d5ae5ad32fb32645bc86fc0d3c1f78cabd60127e1724f936aa9c2da27210818772b9786f7cd16e15616810889e5fe83e68d939939a661a74b8902a0b6f2a81873f0e95e2334a6f10390854b24f12dc068c845ce77a548783797d158b1a10e9e1775629cd1f1680e82163af1dfac698f2f4914dd1bc18defb9124a404d450ac2cf5cc710bdd7ffa95c3e31369d4f5e6f9d1e1e74b7196bf2bb9f93dfbf72aabcdbef652673d7b2050b9fd205dcb2c109a71f56612db4fc2df1cf83a3638d2bec7ea25518d86a331b20f72127b2e716ee120bc0eacf3d5cfa4b8d77e902cb80c2e7715b624143915058188de1f88d8c988927c62eb9bb958ce5d9f03c0436d59136467c3c1ccf734cf9f50f04e391ad8de5aedbc2f9f82c9382de22c6f0a22f55123cc04fc9b51f779a7fff5f46de09c5a233bca987718638055c6780ffa8ac610d358aa6a670516e34b5a527cf75e9b54f0e022ac50d1626be2897bb00c20b3dda444ab7a32bb35a6f1b6bec099fb88bffd652c8824c4600fec645a75c429464b9b28ccb793c6173a718eccd5b81132cdd88e973f51071f2b1398c0d37a174185f7da201bddbde9a343c92614730058497b6214ba458deb3826d840bc6a34208f7a9818e9b81626199401fca8cd76dc290e0266d3283044a085402b8d3efdefa883bff034cb4aa4c0ef77df226fab13aa5d296388232f7053df4b1bc3bc92e4a845806d86dbaf3220fd6512adc6d090fede4ec8eb717ee6c080e2ddf45c3711123d9556f07e991ae2ffbe5fac6cac75a0fc79fd1a564fafe2d172ec0eba6477c5dbf6ab21a394f8c49e27cd74a251ffd4384c12a05b4c2f6d09c624d7236f4addd97446c3548fb661a7c30aed71d82cb292608426734f413e96b26b6f2a9c7d48ded3f3e36ba9926d8cac069ca220bc2345592a22eb5e0e966e76d8e70c86ec6298426c1c47f16557c2823569efe134169cf2870791f5b199479f7ff4f7284873d2d74cd8f05d13908bde43298b40460ed421074a189a9ea48caa0b70d58f9b9b29ed2ea336bdabced6e749b057e394c4acf17da0651b2ae2165a899c43447dbee3a73bb2ecc388e9bd21c4a57075ce95cc178aba4952cefdacef2218a205bc2f819109af62b758bca95055f7500187b58154db42ac285d39822ee9018299be110cd1ecfcaf78868a956a3189734e1d16b3925c14c156573262d0e6dc15b6e0fb24957a1d89153a25e844d765b840adb55383d9ebc0f28ca3719bed37487263bd746dd7af154960703dfb3ec3bec663d922e000df4eca9f2adfdbdeea0497ef2dc68ae2265e4269380d136ddc81c535e119706a31a411b870427595d6f03935bbad523607b57424167edf3395062198d774e0e56f19ac5319655ed9209dac8f086d0bcfd324e472fcca64a1889fcdee72918f256910439ec0aa75ec57c8201ce9b655833d633cd2335683bff95f493e2abd35a42fa58c9bb249b32b3a6152e23493a1a22f76d02aaa6ef11c62e2903a41fa1d59616a9bc15950f0e0a8edf5c2728f93916350d64e19e5e364858f879639469270ed615ef66f96bd4263c5fc28ce118f60e56eac8ef0143e0ea8c09e94b67ff5ec0dcdb8496a426321e1baf6dd80beeb6c0faef32fa2e4a89f52a9026baa5080196962d78286bec71be289c7f2064762f807cd51ec41db6106c395d555b29089d13dd936f38cc6322f2f1cd356465c70adfc84b6efb67263ae95d177e62985054be8ba91cee0994fecff1defa0aaca61705926f37ec40c50f0b056f2cb4edf3210cb1f4d520b5365088b746b7a59d6dbb2e253c5f380b27f55a39156e43eccbc2263bae25d62b928b6d4cefb4c326b0c930f1096db94fcdf357f1f8edd8f5e9594d549dd5be1b286455f2860cd3b3b4a856b96af318fecbe5caf6933dd50c8317b38b5d25c0c704cdce7ca5586cd126f26ac412fbce947be2dd0aa17171f1a01125dbf6b02155cb54c7bf73b0f108f264e6efca5cdec69b98db6cf1d79805d4cb47af6d8ded9d19d78099fe4740e6970bb73e6014aebdc56ad19d442b88d6d93dc529a666bf3410a83faa43ffae738447aa3895c88cae2b9b4e01ff592698d02a07988299f9e6a8cd0074b6837db96c34e26c88c7e3546e34965d2aab60545fc52f0da35383d63a7f05f81f6747294ab4758042591638ebe0d7c3266cd0ab1abce3c715217d7fb566bc725f5ee7fc61f2a4800d2650643bc2246d1f194a3ab8d9f08842e832eb38900f72d9c69f0c07ef928d9f8f644f2949e15a5bab54e98a7f3e4414ab694372d83b47c45750cd8d6827f1ac52d50781ecf2d33529eb0058c0903eb4eadee1658adc6c59b43139b888df0a6171e5c0dbd1f049dd1cb66d42efb6c06c01ff200a2b8aafe7ab01f90ce14d3ac65c596035bffa509ed1e11ec915c2358d7f4392924290dc84f1379bee0cc38bba4cafae300587f8821793b9f39f8a4bac52f848bef217eaf817445dc794fcf7acd88f12988a8beb9e529d6f8cb8411a09bbe0948211c9fc19266ff6558aaca7d08b325f24e273be33c30cd4855e90cbe87c6d39657f31df7fd6657dee3a2d979b6983293782b210b4f083c58392393f2fd8e7d0a8ea64478ad12ea812ae080bc955e0d0e3ba147a085c6dbefb737e09dab29a8ac7a91cca75959c9f0e282c037a8433fd40d65e72bbe4ec5524df16315517566c47afa47dc371530c933335114230e5ff6dfb893de711741d8d1618a6dfcaf9d78cece1497242396cf863830ae45c4b59def465bf6c04a2fbcf5edc8b9844dc6d0e24edf18124613ee1ae80f8970c7fc20e4b5430e1d75643a25d8759f0f99b88b7086f49b00610be0611a1cde6b0087605169b96eb32dcd7611ff74418e5e8a1d1b5024116698607ebff600cf884dbb5acab30a7c933c95370a4bab3d003025c39d3471bd51aab72752a4a4388018cfc836f0e5a0ef59c17ef4248ff447025713451d334220b3fdcc2de133b5da6b54fd49e3f0a1e8bc8e783e96f43a45705489e20a27897b7406d284989f20b5a77e2f7ede5f877aaf52ea2d298c2419c792b438cee28961e54e682705278adc8ec28daaae9f9c199d03bb831fba686636f332164aa391297fbe5f21ee32dc8dd322d487d4f62ca852b43e6571c20552868b11f538dc5edaeeea442111fd20afcdca0d3b1cbb40e228fcf86f4f673a052d376afff71e097589c789163c79adab6a65d89170db706133dc578eae5817063a3d54c35a1d0c242f79d884c5c721970d52ed8529520f74ee82a884bd59251404859a0b8905be04d6c91635b52effdb089401b2e8e0bdf52bcc266f1f05ac01195ac7700356f57ffb6a159a1479b5896f805da1559ef9359502bb4fcd9e0e921cb6ccb7e5995545afc2980a0533240481d1aedf1d2667938cfd14a7ff33a7cbc775a0cf4ec5513b028b076a9335b9368bb25df50b93a170557ce5d22a1d45c9daa083e7332c5038bb5767b21e5d565dd5affed4d790314211add639ff7bc24f987075440f52c3e4bf0156eeb5ff47f6431ae29d8a929c1e6e9c7ca57cb8704508e24f144ff15b8e3c089b33a303a32b9e01433443e718da9752e4eb18201e038e95df54a1796541ade8a2b77772207e7defa791658f9ef5b0ea16b8387e2811f5e8fe8db8997550747c5d11042365eeeca1a668b9e3916e76f45280b0b497a005c9b8847df1150c0c0fe3857765ac31f133535f7c9855defe3fa1d8178b090be85113e27540d4599319e30e8e12edb234f8312d687c77dd288485bcb7e0f8226b8d181aeed86a63d515d5c0965068bc9288545b14d2ba40ff5b4e44f5bf67f2db1cf216b9a1ad8e059a57c66ce75b2865ac4db7ed3129b8e3a7ad4daf80e856a6b4e6736a72513fe6bf30dcdfdd4883c096df5d34e020dbbf53cbc0ad83a2e23e03d7c9c2b4747d0b6bea133f6d7b31192d494c0e4c2534d26c794a72ec08d72a8cf3be80a3306b5e81857ef9b012912b2f2584f6cbb67fbee93ba5cbd069324be885b0d46297c2c09f7c67b909c9e10cb7b6ddd2852e5b2c08a24e1b78b5b5e5bdd60ee44579301e94289e72bfdc1c9d879d5a2740b","isRememberEnabled":true,"rememberDurationInDays":30,"staticryptSaltUniqueVariableName":"ab09c021aa244265cd84022be7c53fc3"};
+
+            // you can edit these values to customize some of the behavior of StatiCrypt
+            const templateConfig = {
+                rememberExpirationKey: "staticrypt_expiration",
+                rememberPassphraseKey: "staticrypt_passphrase",
+                replaceHtmlCallback: null,
+                clearLocalStorageCallback: null,
+            };
+
+            // init the staticrypt engine
+            const staticrypt = staticryptInitiator.init(staticryptConfig, templateConfig);
+
+            // try to automatically decrypt on load if there is a saved password
+            window.onload = async function () {
+                const { isSuccessful } = await staticrypt.handleDecryptOnLoad();
+
+                // if we didn't decrypt anything on load, show the password prompt. Otherwise the content has already been
+                // replaced, no need to do anything
+                if (!isSuccessful) {
+                    // hide loading screen
+                    document.getElementById("staticrypt_loading").classList.add("hidden");
+                    document.getElementById("staticrypt_content").classList.remove("hidden");
+                    document.getElementById("staticrypt-password").focus();
+
+                    // show the remember me checkbox
+                    if (isRememberEnabled) {
+                        document.getElementById("staticrypt-remember-label").classList.remove("hidden");
+                    }
+                }
+            };
+
+            // toggle password visibility
+            const toggleIcon = document.querySelector(".staticrypt-toggle-password-visibility");
+            // these two icons are coming from FontAwesome
+            const imgSrcEyeClosed =
+                "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg==";
+            const imgSrcEyeOpened =
+                "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTI4OCAzMmMtODAuOCAwLTE0NS41IDM2LjgtMTkyLjYgODAuNkM0OC42IDE1NiAxNy4zIDIwOCAyLjUgMjQzLjdjLTMuMyA3LjktMy4zIDE2LjcgMCAyNC42QzE3LjMgMzA0IDQ4LjYgMzU2IDk1LjQgMzk5LjRDMTQyLjUgNDQzLjIgMjA3LjIgNDgwIDI4OCA0ODBzMTQ1LjUtMzYuOCAxOTIuNi04MC42YzQ2LjgtNDMuNSA3OC4xLTk1LjQgOTMtMTMxLjFjMy4zLTcuOSAzLjMtMTYuNyAwLTI0LjZjLTE0LjktMzUuNy00Ni4yLTg3LjctOTMtMTMxLjFDNDMzLjUgNjguOCAzNjguOCAzMiAyODggMzJ6TTE0NCAyNTZhMTQ0IDE0NCAwIDEgMSAyODggMCAxNDQgMTQ0IDAgMSAxIC0yODggMHptMTQ0LTY0YzAgMzUuMy0yOC43IDY0LTY0IDY0Yy03LjEgMC0xMy45LTEuMi0yMC4zLTMuM2MtNS41LTEuOC0xMS45IDEuNi0xMS43IDcuNGMuMyA2LjkgMS4zIDEzLjggMy4yIDIwLjdjMTMuNyA1MS4yIDY2LjQgODEuNiAxMTcuNiA2Ny45czgxLjYtNjYuNCA2Ny45LTExNy42Yy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM3oiLz48L3N2Zz4=";
+            toggleIcon.addEventListener("click", function () {
+                const passwordInput = document.getElementById("staticrypt-password");
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    toggleIcon.src = imgSrcEyeOpened;
+                    toggleIcon.alt = templateToggleAltHide;
+                    toggleIcon.title = templateToggleAltHide;
+                } else {
+                    passwordInput.type = "password";
+                    toggleIcon.src = imgSrcEyeClosed;
+                    toggleIcon.alt = templateToggleAltShow;
+                    toggleIcon.title = templateToggleAltShow;
+                }
+            });
+
+            // handle password form submission
+            document.getElementById("staticrypt-form").addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const password = document.getElementById("staticrypt-password").value,
+                    isRememberChecked = document.getElementById("staticrypt-remember").checked;
+
+                const { isSuccessful } = await staticrypt.handleDecryptionOfPage(password, isRememberChecked);
+
+                if (!isSuccessful) {
+                    alert(templateError);
+                }
+            });
+        </script>
+    </body>
+</html>
